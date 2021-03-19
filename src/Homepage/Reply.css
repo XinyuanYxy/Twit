@@ -1,0 +1,51 @@
+.reply {
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--twitter-background);
+    padding-left: 10px;
+}
+.reply_header {
+    margin-top: 0;
+}
+.reply_body > img{
+    border-radius: 20px;
+    width: 100%;
+
+}
+.reply_body {
+    flex:1;
+    padding: 10px;
+}
+.reply_headerDesription {
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+.reply_headerText > h3 {
+    margin-top: 0;
+    font-size: 15px;
+    margin-bottom: 0px;
+}
+
+.reply_headerUsername{
+    color: grey;
+}
+
+.reply_replyUsername{
+    color: grey;
+    font-size: 11px;
+}
+
+.reply_badge {
+    font-size: 14px !important;
+    color: var(--twitter-color);
+}
+
+.reply_headerSpecial {
+    font-weight: 600;
+    font-size: 12px;
+    color: gray;
+}
+
+.reply_avatar {
+    padding: 10px;
+}
