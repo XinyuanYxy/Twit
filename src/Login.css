@@ -1,0 +1,34 @@
+.login-page {
+    height: 100%;
+    width: 100%;
+}
+
+/* This positions the logo and the login form */
+.centre {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* CSS for left half of page */
+
+.splash {
+    left: 0;
+    height: 100%;
+    width: 40%;
+    position: fixed;
+    background-color: rgb(255, 252, 175);
+}
+
+.tweeter-logo {
+}
+
+/* CSS for right half of page */
+
+.login {
+    right: 0;
+    height: 100%;
+    width: 60%;
+    position: fixed;
+}

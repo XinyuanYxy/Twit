@@ -1,0 +1,42 @@
+.input {
+    margin-bottom: 10px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.icon {
+    margin-left: 10px;
+}
+
+.icon-right {
+    margin-right: 10px;
+}
+
+.login-error {
+    color: red;
+}
+
+.login-input {
+    border: none;
+    width: 250px;
+    height: 20px;
+    padding: 10px;
+    /* margin-left: 10px; */
+    /* padding: 10px; */
+}
+
+.login-button {
+    width: 125px;
+    height: 40px;
+    color: white;
+    background-color: rgb(255, 230, 129);
+    font-weight: bold;
+    border: 1px solid rgb(255, 230, 129);
+    border-radius: 10px;
+}
+
+.success {
+    font-weight: bold;
+    color: green;
+}
