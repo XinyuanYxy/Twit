@@ -2,7 +2,6 @@
     display: flex;
     align-items: flex-start;
     border-bottom: 1px solid var(--twitter-background);
-    padding-bottom: 10px;
 }
 .post_header {
     margin-top: 0;
@@ -10,7 +9,6 @@
 .post_body > img{
     border-radius: 20px;
     width: 100%;
-
 }
 .post_body {
     flex:1;
@@ -18,17 +16,29 @@
 }
 .post_headerDesription {
     margin-bottom: 10px;
-    font-size: 15px;
+    font-size: 20px;
 }
 .post_headerText > h3 {
     margin-top: 0;
-    font-size: 15px;
+    font-size: 20px;
     margin-bottom: 5px;
 }
+
+.post_mainText{
+    font-size: 30px;
+}
+
+.post_headerUsername{
+    color: grey;
+}
+
 .post_footer {
     display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+}
+
+.post_button {
+    display: flex;
+    margin-right: 20px;
 }
 
 .post_badge {
@@ -42,6 +52,6 @@
     color: gray;
 }
 
-.post_avatar {
+.post_avatar{
     padding: 10px;
 }

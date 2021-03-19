@@ -1,0 +1,53 @@
+.feedpost {
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--twitter-background);
+}
+.feedpost_header {
+    margin-top: 0;
+}
+.feedpost_body > img{
+    border-radius: 20px;
+    width: 100%;
+}
+.feedpost_body {
+    flex:1;
+    padding: 10px;
+}
+.feedpost_headerDesription {
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+.feedpost_headerText > h3 {
+    margin-top: 0;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.feedpost_headerUsername{
+    color: grey;
+}
+
+.feedpost_footer {
+    display: flex;
+}
+
+.feedpost_button {
+    display: flex;
+    margin-right: 20px;
+}
+
+.feedpost_badge {
+    font-size: 14px !important;
+    color: var(--twitter-color);
+}
+
+.feedpost_headerSpecial {
+    font-weight: 600;
+    font-size: 12px;
+    color: gray;
+}
+
+.feedpost_avatar {
+    padding: 10px;
+}
