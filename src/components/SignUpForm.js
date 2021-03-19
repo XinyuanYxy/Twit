@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from '../api/axios';
+import { SHA256 } from 'crypto-js';
 import './LoginForm.css';
 
 class SignUpForm extends React.Component {
@@ -11,6 +12,8 @@ class SignUpForm extends React.Component {
             username: "",
             password: "",
             confirmPassword: "",
+            showPassword: false,
+            showConfirmPassword: false,
             success: false,
             error: null
         }
@@ -21,7 +24,7 @@ class SignUpForm extends React.Component {
             try {
                 await axios.post("/users", {
                     username: this.state.username,
-                    password: this.state.password,
+                    password: SHA256(this.state.password).toString(),
                     firstName: this.state.firstName,
                     lastName: this.state.lastName
                 });
@@ -59,16 +62,25 @@ class SignUpForm extends React.Component {
     setConfirmPassword = (e) => {
         this.setState({ confirmPassword: e.target.value });
     };
+
+    togglePassword = () => {
+        this.setState({ showPassword: !this.state.showPassword });
+    };
+    
+    toggleConfirmPassword = () => {
+        this.setState({ showConfirmPassword: !this.state.showConfirmPassword });
+    };
     
     // End React State Setters
 
-    togglePassword = () => {
-
-    };
-
     render() {
         if (this.state.success) {
-            return <div class="success">Account created successfully!</div>
+            return (
+                <div>
+                    <div className="success-icon-container"><i className="success success-icon fas fa-check-circle"></i></div>
+                    <div className="success">Account created successfully!</div>
+                </div>
+            );
         } else {
             return (
                 <React.Fragment>
@@ -117,11 +129,14 @@ class SignUpForm extends React.Component {
                         <input
                             className="login-input" 
                             placeholder="password" 
-                            type="password"
+                            type={this.state.showPassword ? "text" : "password"}
                             value={this.state.password}
                             onChange={this.setPassword}
                         ></input>
-                        <i className="icon-right fas fa-eye" onClick={this.togglePassword}></i>
+                        <i 
+                            className={`icon-right fas ${this.state.showPassword ? "fa-eye-slash" : "fa-eye"}`} 
+                            onClick={this.togglePassword}
+                        />
                     </div>
                     {/* Confirm Password */}
                     <div className="input">
@@ -129,13 +144,18 @@ class SignUpForm extends React.Component {
                         <input
                             className="login-input" 
                             placeholder="confirm password" 
-                            type="password"
+                            type={this.state.showConfirmPassword ? "text" : "password"}
                             value={this.state.confirmPassword}
                             onChange={this.setConfirmPassword}
                         ></input>
-                        <i className="icon-right fas fa-eye" onClick={this.togglePassword}></i>
+                        <i 
+                            className={`icon-right fas ${this.state.showConfirmPassword ? "fa-eye-slash" : "fa-eye"}`} 
+                            onClick={this.toggleConfirmPassword} 
+                        />
                     </div>
-                    <button className="login-button" onClick={this.signUp}>Sign Up</button>
+                    <div className="login-button-container">
+                        <button className="login-button" onClick={this.signUp}>Sign Up</button>
+                    </div>
                 </React.Fragment>
             );
         }

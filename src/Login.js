@@ -24,9 +24,9 @@ class Login extends React.Component {
                 <div className="login">
                     <div className="centre">
                         { this.state.signUp ?  <SignUpForm /> : <LoginForm /> }
-                        <div>
+                        <div className="sign-up-section">
                             <a className="sign-up" onClick={this.toggleSignUp}>
-                                {this.state.signUp  ? "Return to Login" : "Sign up"}
+                                {this.state.signUp ? "Return to Login" : "Sign up"}
                             </a>
                         </div>
                     </div>

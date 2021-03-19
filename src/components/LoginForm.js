@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from '../api/axios';
+import { SHA256 } from 'crypto-js';
 import './LoginForm.css';
 
 class LoginForm extends React.Component {
@@ -8,6 +9,7 @@ class LoginForm extends React.Component {
         this.state = {
             username: "",
             password: "",
+            showPassword: false,
             error: null
         }
     }
@@ -16,13 +18,13 @@ class LoginForm extends React.Component {
         try {
             const response = await axios.post("/login", {
                 username: this.state.username,
-                password: this.state.password
+                password: SHA256(this.state.password).toString()
             });
             localStorage.setItem('token', response.data.token);
             window.location.reload();
             
         } catch (e) {
-            this.setState({ error: "Invalid Username and/or Password"});
+            this.setState({ error: "Invalid Username and/or Password" });
         }
     };
 
@@ -39,7 +41,7 @@ class LoginForm extends React.Component {
     };
 
     togglePassword = () => {
-
+        this.setState({ showPassword: !this.state.showPassword });
     };
 
     render() {
@@ -66,14 +68,18 @@ class LoginForm extends React.Component {
                     <input
                         className="login-input" 
                         placeholder="password" 
-                        type="password"
+                        type={this.state.showPassword ? "text" : "password"}
                         value={this.state.password}
                         onChange={this.setPassword}
                     ></input>
-                    <i className="icon-right fas fa-eye" onClick={this.togglePassword}></i>
+                    <i 
+                        className={`icon-right fas ${this.state.showPassword ? "fa-eye-slash" : "fa-eye"}`}
+                        onClick={this.togglePassword}
+                    />
                 </div>
-                <button className="login-button" onClick={this.login}>Sign In</button>
-                <button className="forgot-password">Forgot password</button>
+                <div className="login-button-container">
+                    <button className="login-button" onClick={this.login}>Sign In</button>
+                </div>
             </React.Fragment>
         );
     }

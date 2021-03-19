@@ -32,3 +32,17 @@
     width: 60%;
     position: fixed;
 }
+
+.sign-up-section {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.sign-up {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.sign-up:hover {
+    cursor: pointer;
+}
