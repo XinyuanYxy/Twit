@@ -7,7 +7,6 @@ import Widgets from './Widgets';
 import AuthRouter from './routers/AuthRouter';
 import LoginRouter from './routers/LoginRouter';
 
-
 function App() {
   const authToken = localStorage.getItem("token");
   if (authToken) {
