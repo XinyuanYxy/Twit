@@ -12,23 +12,23 @@ function Post({displayname,username,verified, timestamp,
     return (
         <div className="post">
             <div className="post_avatar">
-                <Avatar></Avatar>
+                <Avatar src = {avatar } />
             </div>
             <div className="post_body">
                 <div className="post_header">
                     <div className="post_headerText">
                         <h3> 
-                            Chris{" "} <span>
-                                <VerifiedUserIcon className="post_badge"/> 
-                                @yxychr
+                            {displayname}{" "} <span>
+                                {verified && <VerifiedUserIcon className="post_badge"/>} 
+                                @{username}
                                 </span>
                         </h3>
                     </div>
                     <div className="post_headerDescription">
-                        <p>I urge you not to drag others down</p>
+                        <p>{text}</p>
                     </div>
                 </div>
-                <img src="" alt=""/>
+                <img src= {image} alt=""/>
                 <div className="post_footer">
                     <ChatBubbleOutlineIcon fontsize="small" />
                     <RepeatIcon fontSize ="small"/>

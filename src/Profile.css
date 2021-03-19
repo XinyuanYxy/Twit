@@ -1,4 +1,4 @@
-.feed {
+.profile {
     flex: 0.4;
     border-right: 5px solid var(--twitter-background);
     min-width: fit-content;
@@ -6,7 +6,7 @@
     overflow: scroll; 
 }
 
-.feed_header {
+.profile_header {
     position: sticky;
     top : 0;
     background-color: white;
@@ -29,5 +29,3 @@
     -ms-overflow-style: none;  /* IE and Edge*/
     scrollbar-width: none; /* firefox*/
 }
-
-
