@@ -1,7 +1,7 @@
-import React,{useState, useEffect} from 'react'
+import {useState} from 'react'
 import './Profile.css'
 import TweetBox from './TweetBox';
-import Post from "./Post";
+import Post from "./Homepage/Post";
 
 function Profile() {
     return (
@@ -13,14 +13,7 @@ function Profile() {
             </div>
             
             {/* post */}
-            <Post 
-            displayname=" chris"
-            username = 'xyxchris'
-            verified = {true}
-            text="im in profile page"
-            avatar = ""
 
-            />
      
           
 
