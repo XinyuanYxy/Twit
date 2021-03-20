@@ -14,15 +14,27 @@ function AuthRouter() {
         text: 'Undefined'
     });
 
-    const url = "localhost:3000"
+    const [user, setUser] = useState({
+        id: 0,
+        displayname: 'Chris',
+        username: '@yxychr',
+        avatar: null,
+        description: 'Just a person doin\' their thing'
+    })
 
     const displayPost = (post) =>{
         setCurrentPost(post);
-        window.location.href = "post";
     }
 
-    const setUrl = (extension) =>{
-        window.location.href = extension;
+    const displayProfile = (post) =>{
+        console.log(post)
+        setUser({
+            id: 0,
+            displayname: post.displayname,
+            username: post.username,
+            avatar: post.avatar,
+            description: 'Just a person doin\' their thing'
+        });
     }
 
     return (
@@ -30,20 +42,20 @@ function AuthRouter() {
             <Switch>
                 <Route exact path="/">
                     {/* sidebar */}
-                    <Sidebar setUrl={setUrl} currentPage={0}/>
+                    <Sidebar currentPage={0}/>
                     {/* feed */}
-                    <Feed displayPost={displayPost}/>
+                    <Feed displayPost={displayPost} displayProfile={displayProfile}/>
                 </Route>
                 <Route exact path="/post">
-                    <Sidebar setUrl={setUrl} currentPage={1}/>
-                    <FullPost post={currentPost} displayPost={displayPost}/>
+                    <Sidebar currentPage={1}/>
+                    <FullPost post={currentPost} displayPost={displayPost} displayProfile={displayProfile}/>
                 </Route>
                 <Route exact path="/profile">
-                    <Sidebar setUrl={setUrl} currentPage={2}/>
-                    <Profile />
+                    <Sidebar currentPage={2}/>
+                    <Profile user={user}/>
                 </Route>
                 <Route exact path="/search">
-                    <Sidebar setUrl={setUrl} currentPage={3}/>
+                    <Sidebar currentPage={3}/>
                 </Route>
             </Switch>
         </BrowserRouter>
