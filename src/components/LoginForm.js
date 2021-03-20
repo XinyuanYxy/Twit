@@ -15,16 +15,22 @@ class LoginForm extends React.Component {
     }
 
     login = async () => {
-        try {
-            const response = await axios.post("/login", {
-                username: this.state.username,
-                password: SHA256(this.state.password).toString()
-            });
-            localStorage.setItem('token', response.data.token);
+        // FOR DEVELOPMENT TESTING - remove later
+        if (this.state.username === "test@test.com" && this.state.password === "password") {
+            localStorage.setItem("token", true);
             window.location.reload();
-            
-        } catch (e) {
-            this.setState({ error: "Invalid Username and/or Password" });
+        } else {
+            try {
+                const response = await axios.post("/login", {
+                    username: this.state.username,
+                    password: SHA256(this.state.password).toString()
+                });
+                localStorage.setItem('token', response.data.token);
+                window.location.reload();
+                
+            } catch (e) {
+                this.setState({ error: "Invalid Username and/or Password" });
+            }
         }
     };
 
