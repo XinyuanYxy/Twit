@@ -1,9 +1,5 @@
 import React from 'react';
-import axios from 'axios';
-import Sidebar from './Sidebar';
 import './App.css';
-import Feed from './Feed';
-import Widgets from './Widgets';
 import AuthRouter from './routers/AuthRouter';
 import LoginRouter from './routers/LoginRouter';
 

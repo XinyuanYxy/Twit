@@ -1,0 +1,17 @@
+.fullpost {
+    flex: 0.4;
+    border-right: 1px solid var(--twitter-background);
+    /* below is to make only feed component scroll,not the entire page */
+    overflow: scroll;
+}
+
+/* hide scrollbar for webbrowser */
+.fullpost::-webkit-scrollbar {
+    display: none;
+}
+.fullpost {
+    -ms-overflow-style: none;  /* IE and Edge*/
+    scrollbar-width: none; /* firefox*/
+}
+
+

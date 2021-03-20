@@ -5,37 +5,25 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 
 import HomeIcon from '@material-ui/icons/Home';
 import SearchIcon from '@material-ui/icons/Search';
-import Notification from '@material-ui/icons/Notifications';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-import ListAltIcon from '@material-ui/icons/ListAlt';
 import PermidentityIcon from '@material-ui/icons/PermIdentity';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
-import {Button} from '@material-ui/core';
+function Sidebar({setUrl, currentPage}){
+    const logout = () => {
+        localStorage.removeItem("token");
+        window.location.reload();
+    }
 
-function Sidebar(){
     return (
         <div className="sidebar">
             {/* twitter icon*/}
             <TwitterIcon className="sidebar_twitterIcon" />
             {/* twitter option*/}
-            <SidebarOption active Icon ={HomeIcon} text = "Home"/>
-            <SidebarOption Icon ={SearchIcon} text = "Explore"/>
-            <SidebarOption Icon ={Notification} text = "Notification"/>
-            <SidebarOption Icon ={MailOutlineIcon} text = "Messages"/>
-            <SidebarOption Icon ={BookmarkBorderIcon} text = "Bookmars"/>
-            <SidebarOption Icon ={ListAltIcon} text = "Lists"/>
-            <SidebarOption Icon ={PermidentityIcon} text = "Profile"/>
-            <SidebarOption Icon ={MoreHorizIcon} text = "More"/>
-            
-          
-            {/* button -> twitter*/}
-            <Button variant = "outlined" className="sidebar_tweet" fullWidth  > Tweet </Button>
-            
+            <SidebarOption active={currentPage === 0} Icon ={HomeIcon} text = "Home" path={"/"} clickFunc={setUrl}/>
+            <SidebarOption active={currentPage === 3} Icon ={SearchIcon} text = "Search" path={"search"} clickFunc={setUrl}/>
 
-
-
+            <SidebarOption active={currentPage === 2} Icon ={PermidentityIcon} text = "Profile" path={"profile"} clickFunc={setUrl}/>
+            <SidebarOption active={null} Icon={ExitToAppIcon} text="Logout" clickFunc={logout} />
         </div>
 
     );

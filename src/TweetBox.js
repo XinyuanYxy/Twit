@@ -1,21 +1,32 @@
 import { Avatar, Button } from '@material-ui/core';
 import React from 'react';
 import './TweetBox.css';
+import { useState } from 'react'
 
-function TweetBox() {
+function TweetBox({makePost}) {
+
+    const [text, setText] = useState('')
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        if(!text){
+            alert('Tweet can\'t be empty');
+            return;
+        }
+
+        makePost({displayname:'Chris',username:'@yxychr',text,avatar:null })
+        setText('')
+    }
+
     return (
         <div className="tweetBox">
-            <form>
+            <form onSubmit={onSubmit}>
                 <div className="tweetBox_input">
                     <Avatar src=""/>
-                    <input placeholder= "What's happening" type= "text" />
-                 
-                
-
+                    <textarea value={text} placeholder= "What's happening" onChange={(e) => setText(e.target.value)}/>
                 </div>
-                <Button className="tweetBox_tweetButton">Tweet</Button>
-
-
+                <input type='submit' value='Tweet' className="tweetBox_tweetButton"/>
             </form>
 
             
