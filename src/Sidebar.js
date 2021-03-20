@@ -24,7 +24,7 @@ function Sidebar({currentPage}){
 
             <SidebarOption active={currentPage === 2} Icon ={PermidentityIcon} text = "Profile" path={"profile"}/>
 
-            <SidebarOption active={null} Icon={ExitToAppIcon} text="Logout" clickFunc={logout} />
+            <SidebarOption active={null} Icon={ExitToAppIcon} text="Logout" clickFunc={logout} path={"/"}/>
 
         </div>
 
