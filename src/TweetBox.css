@@ -9,6 +9,16 @@
     flex-direction: column;
 }
 
+.tweetBox_imageButton {
+    width: 125px;
+    height: 40px;
+    color: black;
+    background-color: rgb(255, 230, 129);
+    font-weight: bold;
+    border: 1px solid rgb(255, 230, 129);
+    border-radius: 10px;
+}
+
 .tweetBox_input {
     padding: 20px;
     display: flex;
@@ -25,7 +35,7 @@
 
 .tweetBox_tweetButton {
 
-    background-color: var(--twitter-color) !important;
+    background-color: var(--tweeter-color) !important;
     border: none !important;
     color: white !important;
     font-weight: 900 !important;

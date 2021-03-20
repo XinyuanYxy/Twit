@@ -1,5 +1,5 @@
 .sidebar_tweet {
-  background-color: var(--twitter-color) !important;
+  background-color: var(--tweeter-color) !important;
   border: none !important;
   color: white !important;
   font-weight: 900 !important;
@@ -10,13 +10,19 @@
 }
 
 .sidebar {
+    height: 100%;
     border-right: 1px solid var(--twitter-background);
     flex: 0.3;
-    margin-top:20px;
+    padding-top:20px;
+    margin-right: 20px;
+    /* Hacky fix to prevent whitespace to the left of the sidebar */
+    margin-left: -20px;
+    padding-left: 20px;
+    background-color: rgb(255, 252, 175);
 }
 
 .sidebar_twitterIcon {
-    color: var(--twitter-color);
+    color: rgb(255, 214, 52);
     font-size: 30px !important;
     margin-left: 20px;
     margin-bottom : 20px;

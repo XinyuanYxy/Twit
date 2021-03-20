@@ -2,6 +2,7 @@ import { Avatar, Button } from '@material-ui/core';
 import React from 'react';
 import './TweetBox.css';
 import { useState } from 'react'
+import PhotoCameraOutlinedIcon from '@material-ui/icons/PhotoCameraOutlined';
 
 function TweetBox({makePost}) {
 
@@ -24,12 +25,13 @@ function TweetBox({makePost}) {
             <form onSubmit={onSubmit}>
                 <div className="tweetBox_input">
                     <Avatar src=""/>
-                    <textarea value={text} placeholder= "What's happening" onChange={(e) => setText(e.target.value)}/>
+                    <textarea value={text} placeholder= "What's happening?" onChange={(e) => setText(e.target.value)}/>
                 </div>
+                <button className="tweetBox_imageButton">
+                    <PhotoCameraOutlinedIcon />
+                </button>
                 <input type='submit' value='Tweet' className="tweetBox_tweetButton"/>
             </form>
-
-            
         </div>
     );
 }

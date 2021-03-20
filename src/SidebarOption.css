@@ -6,9 +6,9 @@
 
 }
 .sidebarOption:hover {
-    background-color: #e8f5fe ;
+    background-color: rgb(254, 251, 211);
     border-radius: 30px;
-    color : var(--twitter-color);
+    color : var(--tweeter-color);
     transition: color 300ms ease-out;
 }
 .sidebarOption > .MuiSvgIcon-root {
@@ -22,5 +22,5 @@
 }
 
 .sidebarOption--active {
-    color: var(--twitter-color);
+    color: rgb(255, 214, 52);
 }
