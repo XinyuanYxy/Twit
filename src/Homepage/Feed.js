@@ -5,7 +5,7 @@ import TweetBox from '../TweetBox';
 import FeedPost from "./FeedPost";
 import Header from '../Header';
 
-function Feed({displayPost}){
+function Feed({displayPost, displayProfile}){
     const [posts, setPosts] = useState([
         {
             id: 0,
@@ -47,7 +47,7 @@ function Feed({displayPost}){
 
             {/* post */}
             {posts.map((post) =>(
-                <FeedPost key={post.id} post={post} displayPost={displayPost}/>
+                <FeedPost key={post.id} post={post} displayPost={displayPost} displayProfile={displayProfile}/>
             ))}
 
         </div>
