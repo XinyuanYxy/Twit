@@ -57,7 +57,7 @@ function AuthRouter() {
                 </Route>
                 <Route exact path="/search">
                     <Sidebar currentPage={3}/>
-                    <Search />
+                    <Search displayProfile={displayProfile}/>
                 </Route>
             </Switch>
         </BrowserRouter>
