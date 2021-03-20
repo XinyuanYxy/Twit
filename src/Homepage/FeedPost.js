@@ -10,6 +10,7 @@ function FeedPost({post, displayPost, displayProfile}) {
     const onClickReply = (id) =>{
         console.log('clicked reply on ' + id)
     }
+    
     return (
         <div className="feedpost">
             <div className="feedpost_avatar">

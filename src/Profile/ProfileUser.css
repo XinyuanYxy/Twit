@@ -1,0 +1,30 @@
+.profileUser {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 10px;
+    border: 3px solid var(--twitter-background);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.profileUser_header {
+    margin-top: 0;
+}
+.profileUser_body {
+    flex:1;
+    padding: 10px;
+}
+.profileUser_headerDesription {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.profileUser_headerText > h3 {
+    font-size: 20px;
+}
+
+.profileUser_headerUsername{
+    color: grey;
+}
+
+.profileUser_avatar{
+    padding: 10px;
+}

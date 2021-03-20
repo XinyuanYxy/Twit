@@ -1,0 +1,65 @@
+.profilepost {
+    display: flex;
+    align-items: flex-start;
+    border: 3px solid var(--twitter-background);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.profilepost_header {
+    margin-top: 0;
+}
+.profilepost_body > img{
+    border-radius: 20px;
+    width: 100%;
+}
+.profilepost_body {
+    flex:1;
+    padding: 10px;
+}
+.profilepost_headerDesription {
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+.profilepost_headerText > h3 {
+    margin-top: 0;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.profilepost_headerUsername{
+    color: grey;
+}
+
+.profilepost_footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profilepost_button {
+    display: flex;
+    margin-right: 20px;
+}
+
+.profilepost_button_right {
+    display: flex;
+    margin-right: 40px;
+}
+
+.profilepost_badge {
+    font-size: 14px !important;
+    color: var(--tweeter-color);
+}
+
+.profilepost_headerSpecial {
+    font-weight: 600;
+    font-size: 12px;
+    color: gray;
+}
+
+.profilepost_avatar {
+    padding: 10px;
+}
+
+.profilepost_user {
+    margin-top: 0 !important;
+}

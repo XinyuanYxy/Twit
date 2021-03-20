@@ -1,0 +1,16 @@
+.profile {
+    /* This should match the other pages until this put into universal CSS */
+    flex: 0.5;
+    /* below is to make only feed component scroll,not the entire page */
+    overflow: scroll; 
+}
+
+/* hide scrollbar for webbrowser */
+
+.profile::-webkit-scrollbar {
+    display: none;
+}
+.profile {
+    -ms-overflow-style: none;  /* IE and Edge*/
+    scrollbar-width: none; /* firefox*/
+}

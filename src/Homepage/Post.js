@@ -5,7 +5,7 @@ import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline'
 import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
 import {Link} from "react-router-dom";
 
-function Post({post, displayPost, displayProfile}) {
+function Post({post, displayProfile}) {
     
     const onClickReply = (id) =>{
         console.log('clicked reply on ' + id)
