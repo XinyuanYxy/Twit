@@ -34,11 +34,12 @@
 
 .post_footer {
     display: flex;
+    justify-content: space-between;
 }
 
 .post_button {
     display: flex;
-    margin-right: 20px;
+    margin-right: 40px;
 }
 
 .post_badge {

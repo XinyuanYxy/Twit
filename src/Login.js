@@ -19,7 +19,7 @@ class Login extends React.Component {
         return (
             <div className="login-page">
                 <div className="splash">
-                    <img className="centre tweeter-logo" src="logo192.png"></img>
+                    <img className="centre tweeter-logo" src="logo.png"></img>
                 </div>
                 <div className="login">
                     <div className="centre">

@@ -8,7 +8,7 @@
 .sidebarOption:hover {
     background-color: rgb(254, 251, 211);
     border-radius: 30px;
-    color : var(--tweeter-color);
+    color: rgb(255, 214, 52);
     transition: color 300ms ease-out;
 }
 .sidebarOption > .MuiSvgIcon-root {

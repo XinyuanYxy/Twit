@@ -2,7 +2,7 @@ import React from 'react'
 import "./Post.css";
 import { Avatar} from '@material-ui/core';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline'
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
+import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
 function Post({post, displayPost, displayProfile}) {
     
     const onClickReply = (id) =>{
@@ -30,7 +30,7 @@ function Post({post, displayPost, displayProfile}) {
                 <img src="" alt=""/>
                 <div className="post_footer">
                     <ChatBubbleOutlineIcon onClick={()=>onClickReply(post.id)} fontsize="small" className="post_button"/>
-                    <FavoriteBorderIcon fontsize="small" className="post_button"/>
+                    <ThumbUpOutlinedIcon fontsize="small" className="post_button"/>
                 </div>
             </div>
 

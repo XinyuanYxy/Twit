@@ -12,15 +12,19 @@
     flex-direction: column;
 }
 
+.image_upload {
+    display: none;
+}
+
 .tweetBox_imageButton {
     width: 125px;
     height: 40px;
-    color: black;
+    color: white;
     background-color: rgb(255, 230, 129);
     font-weight: bold;
     border: 1px solid rgb(255, 230, 129);
     border-radius: 10px;
-    margin-left: 75px;
+    margin-left: 80px;
 }
 
 .tweetBox_input {
@@ -38,16 +42,20 @@
     height: 100%;
 }
 
-.tweetBox_tweetButton {
+.tweetBox_buttons_container {
+    display: flex;
+    justify-content: space-between;
+}
 
+.tweetBox_tweetButton {
     background-color: var(--tweeter-color) !important;
     border: none !important;
     color: white !important;
     font-weight: 900 !important;
     text-transform: inherit !important;
-    border-radius: 30px !important;
-    height: 30px !important;
-    width: 80px i !important;
+    border-radius: 10px !important;
+    height: 40px !important;
+    width: 125px !important;
     /* push the tweet button to the right */
-    margin-left: auto !important; 
+    margin-right: 20px !important;
 }

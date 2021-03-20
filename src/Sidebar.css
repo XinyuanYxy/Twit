@@ -11,6 +11,7 @@
 
 .sidebar {
     height: 100%;
+    width: 100px;
     border-right: 1px solid var(--twitter-background);
     flex: 0.3;
     margin-right: 20px;
@@ -20,10 +21,15 @@
     background-color: rgb(255, 252, 175);
 }
 
+.sidebar_iconContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .sidebar_twitterIcon {
     color: rgb(255, 214, 52);
     font-size: 30px !important;
-    margin-left: 20px;
     margin-bottom : 20px;
     margin-top: 20px;
+    width: 200px;
 }

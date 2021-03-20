@@ -32,6 +32,7 @@
 
 .feedpost_footer {
     display: flex;
+    justify-content: space-between;
 }
 
 .feedpost_button {

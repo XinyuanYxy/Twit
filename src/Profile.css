@@ -1,5 +1,6 @@
 .profile {
-    flex: 0.4;
+    /* This should match the other pages until this put into universal CSS */
+    flex: 0.5;
     border-right: 5px solid var(--twitter-background);
     min-width: fit-content;
     /* below is to make only feed component scroll,not the entire page */
