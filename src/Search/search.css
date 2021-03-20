@@ -1,6 +1,5 @@
 .pageContainer {
-  flex: 0.4;
-  border-right: 1px solid var(--twitter-background);
+  flex: 0.5;
   /* below is to make only feed component scroll,not the entire page */
   overflow: scroll;
 }
