@@ -1,12 +1,30 @@
 .tweetBox {
-    padding-bottom: 5px;
-    border-bottom: 8px solid var(--twitter-background);
+    padding-bottom: 10px;
+    border: 3px solid var(--twitter-background);
+    border-radius: 5px;
     padding-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 /* make the TWEET in the middle */
 .tweetBox > form {
     display:flex ;
     flex-direction: column;
+}
+
+.image_upload {
+    display: none;
+}
+
+.tweetBox_imageButton {
+    width: 125px;
+    height: 40px;
+    color: white;
+    background-color: rgb(255, 230, 129);
+    font-weight: bold;
+    border: 1px solid rgb(255, 230, 129);
+    border-radius: 10px;
+    margin-left: 80px;
 }
 
 .tweetBox_input {
@@ -17,23 +35,27 @@
 .tweetBox_input > textarea {
     margin-left: 20px;
     font-size: 20px;
-    border: none;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
     resize: none; 
     width: 100%;
     height: 100%;
 }
 
-.tweetBox_tweetButton {
+.tweetBox_buttons_container {
+    display: flex;
+    justify-content: space-between;
+}
 
-    background-color: var(--twitter-color) !important;
+.tweetBox_tweetButton {
+    background-color: var(--tweeter-color) !important;
     border: none !important;
     color: white !important;
     font-weight: 900 !important;
     text-transform: inherit !important;
-    border-radius: 30px !important;
-    height: 30px !important;
-    margin-top: 20px !important;
-    width: 80px i !important;
+    border-radius: 10px !important;
+    height: 40px !important;
+    width: 125px !important;
     /* push the tweet button to the right */
-    margin-left: auto !important; 
+    margin-right: 20px !important;
 }

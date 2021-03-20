@@ -1,6 +1,6 @@
 .feed {
-    flex: 0.4;
-    border-right: 1px solid var(--twitter-background);
+    /* This value should ideally match the other pages */
+    flex: 0.5;
     /* below is to make only feed component scroll,not the entire page */
     overflow: scroll; 
 }

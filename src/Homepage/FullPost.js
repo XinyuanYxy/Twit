@@ -33,12 +33,14 @@ function FullPost({post, displayPost, displayProfile}){
         <div className="fullpost"> 
             <Header headerText="Tweeter"/>
             {/* post */}
-            <Post post={post} displayPost={displayPost} displayProfile={displayProfile}/>
-            
-            {/* replies */}
-            {replies.map((reply) =>(
-                <Reply key={reply.id} reply={reply} replyname={post.username} displayProfile={displayProfile}/>
-            ))}
+            <div className="fullpost-container">
+                <Post post={post} displayPost={displayPost} displayProfile={displayProfile}/>
+                
+                {/* replies */}
+                {replies.map((reply) =>(
+                    <Reply key={reply.id} reply={reply} replyname={post.username} displayProfile={displayProfile}/>
+                ))}
+            </div>
         </div>
     );
 }
