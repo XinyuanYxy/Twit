@@ -1,0 +1,33 @@
+.feed {
+    flex: 0.4;
+    border-right: 5px solid var(--twitter-background);
+    min-width: fit-content;
+    /* below is to make only feed component scroll,not the entire page */
+    overflow: scroll; 
+}
+
+.feed_header {
+    position: sticky;
+    top : 0;
+    background-color: white;
+    z-index: 10;
+    border: 1px solid var(--twitter-background);
+    padding: 15px 10px;
+}
+
+.feed_header > h2 {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+/* hide scrollbar for webbrowser */
+
+.feed::-webkit-scrollbar {
+    display: none;
+}
+.feed {
+    -ms-overflow-style: none;  /* IE and Edge*/
+    scrollbar-width: none; /* firefox*/
+}
+
+
