@@ -40,6 +40,11 @@
     margin-right: 20px;
 }
 
+.feedpost_button_right {
+    display: flex;
+    margin-right: 40px;
+}
+
 .feedpost_badge {
     font-size: 14px !important;
     color: var(--tweeter-color);

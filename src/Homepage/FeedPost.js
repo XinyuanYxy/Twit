@@ -37,7 +37,7 @@ function FeedPost({post, displayPost, displayProfile}) {
                 <img src="" alt=""/>
                 <div className="feedpost_footer">
                     <ChatBubbleOutlineIcon onClick={()=>onClickReply(post.id)} fontsize="small" className="feedpost_button"/>
-                    <ThumbUpOutlinedIcon fontsize="small" className="post_button"/>
+                    <ThumbUpOutlinedIcon fontsize="small" className="feedpost_button_right"/>
                 </div>
             </div>
 

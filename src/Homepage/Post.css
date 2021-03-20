@@ -39,7 +39,11 @@
 
 .post_button {
     display: flex;
-    margin-right: 40px;
+}
+
+.post_button_right {
+    display: flex;
+    margin-right: 65px;
 }
 
 .post_badge {
