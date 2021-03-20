@@ -4,7 +4,7 @@ import AuthRouter from './routers/AuthRouter';
 import LoginRouter from './routers/LoginRouter';
 
 function App() {
-  const authToken = true;//localStorage.getItem("token");
+  const authToken = localStorage.getItem("token");
   if (authToken) {
     return (
       <div className="app">
