@@ -1,4 +1,15 @@
 .pageContainer {
-  flex: 0.3
+  flex: 0.4;
+  border-right: 1px solid var(--twitter-background);
+  /* below is to make only feed component scroll,not the entire page */
+  overflow: scroll;
 }
 
+/* hide scrollbar for webbrowser */
+.pageContainer::-webkit-scrollbar {
+  display: none;
+}
+.pageContainer {
+  -ms-overflow-style: none;  /* IE and Edge*/
+  scrollbar-width: none; /* firefox*/
+}

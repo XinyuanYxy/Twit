@@ -1,0 +1,39 @@
+.searchBox {
+    padding-bottom: 5px;
+    border-bottom: 8px solid var(--twitter-background);
+    padding-right: 10px;
+}
+/* make the TWEET in the middle */
+.searchBox > form {
+    display:flex ;
+    flex-direction: column;
+}
+
+.searchBox_input {
+    padding: 20px;
+    display: flex;
+}
+
+.searchBox_input > textarea {
+    margin-left: 20px;
+    font-size: 20px;
+    border: none;
+    resize: none; 
+    width: 100%;
+    height: 100%;
+}
+
+.searchBox_searchButton {
+
+    background-color: var(--twitter-color) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 900 !important;
+    text-transform: inherit !important;
+    border-radius: 30px !important;
+    height: 30px !important;
+    margin-top: 20px !important;
+    width: 100% !important;
+    /* push the tweet button to the right */
+    margin-left: auto !important; 
+}

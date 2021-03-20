@@ -1,56 +1,42 @@
 import React from 'react';
 import './search.css';
+import Header from '../Header'
+import SearchBox from './SearchBox'
+import SearchResult from './SearchResult'
 
-
-const ResultCard = (props) => {
-  const {username, msg} = props;
-  return (
-    <div className="resultCardContainer">
-      <img />
-      <div className="rcc_usrname">{username}</div>
-      <div className="rcc_msg">{msg}</div>
-    </div>
-  )
-}
-
-export default class Search extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state ={ 
-      searchTxt: ''
-    }
-  }
-
-  render() {
-    const {searchTxt} = this.state;
-
+function Search({displayProfile}) {
     const mockData = [
       {
-        username: "user1",
-        msg: "test"
+        id: 0,
+        displayname: "Chris",
+        username: "@ChrisTucker",
+        Avatar: 'christucker.jpg'
       },
       {
-        username: "user2",
-        msg: "test"
+        id: 1,
+        displayname: "Christopher",
+        username: "@ChristopherRobin",
+        Avatar: 'christopherrobin.jpg'
       },
       {
-        username: "user3",
-        msg: "test"
+        id: 2,
+        displayname: "Christy",
+        username: "@Christy",
+        Avatar: 'christy.jpg'
       },
     ]
 
     return (
       <div className="pageContainer">
-        <div className="inputContainer">
-          <input value={searchTxt} placeholder="Search here" />
-        </div>
+        <Header headerText={"Search"}/>
+        <SearchBox />
         <div className="searchResultContainer">
-          {mockData.map(d => {
-            return ResultCard(d)
-          })}
+        {mockData.map((user) =>(
+            <SearchResult key={user.id} user={user} displayProfile={displayProfile}/>
+        ))}
         </div>
       </div>
     )
-  }
 }
+
+export default Search
