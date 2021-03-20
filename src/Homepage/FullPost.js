@@ -5,7 +5,7 @@ import Post from "./Post";
 import Reply from "./Reply";
 import Header from '../Header';
 
-function FullPost({post, displayPost}){
+function FullPost({post, displayPost, displayProfile}){
     const [replies, setReplies] = useState([
         {
             id: 0,
@@ -33,11 +33,11 @@ function FullPost({post, displayPost}){
         <div className="fullpost"> 
             <Header headerText="Tweeter"/>
             {/* post */}
-            <Post post={post} displayPost={displayPost}/>
+            <Post post={post} displayPost={displayPost} displayProfile={displayProfile}/>
             
             {/* replies */}
             {replies.map((reply) =>(
-                <Reply key={reply.id} reply={reply} replyname={post.username}/>
+                <Reply key={reply.id} reply={reply} replyname={post.username} displayProfile={displayProfile}/>
             ))}
         </div>
     );
