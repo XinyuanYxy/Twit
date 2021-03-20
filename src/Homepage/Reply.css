@@ -1,7 +1,7 @@
 .reply {
     display: flex;
     align-items: flex-start;
-    border-bottom: 1px solid var(--twitter-background);
+    border: 1px solid var(--twitter-background);
     padding-left: 10px;
 }
 .reply_header {

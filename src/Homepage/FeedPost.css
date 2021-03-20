@@ -1,7 +1,9 @@
 .feedpost {
     display: flex;
     align-items: flex-start;
-    border-bottom: 1px solid var(--twitter-background);
+    border: 3px solid var(--twitter-background);
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 .feedpost_header {
     margin-top: 0;
@@ -50,4 +52,8 @@
 
 .feedpost_avatar {
     padding: 10px;
+}
+
+.feedpost_user {
+    margin-top: 0 !important;
 }

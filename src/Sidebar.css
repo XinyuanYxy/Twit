@@ -13,7 +13,6 @@
     height: 100%;
     border-right: 1px solid var(--twitter-background);
     flex: 0.3;
-    padding-top:20px;
     margin-right: 20px;
     /* Hacky fix to prevent whitespace to the left of the sidebar */
     margin-left: -20px;
@@ -26,5 +25,5 @@
     font-size: 30px !important;
     margin-left: 20px;
     margin-bottom : 20px;
-
+    margin-top: 20px;
 }

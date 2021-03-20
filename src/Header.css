@@ -3,7 +3,8 @@
     top : 0;
     background-color: white;
     z-index: 10;
-    border: 1px solid var(--twitter-background);
+    border: 3px solid var(--twitter-background);
+    border-radius: 5px;
     padding: 15px 10px;
 }
 

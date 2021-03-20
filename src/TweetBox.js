@@ -30,7 +30,7 @@ function TweetBox({makePost}) {
                 <button className="tweetBox_imageButton">
                     <PhotoCameraOutlinedIcon />
                 </button>
-                <input type='submit' value='Tweet' className="tweetBox_tweetButton"/>
+                <input onClick={onSubmit} type="submit" value='Tweet' className="tweetBox_tweetButton"/>
             </form>
         </div>
     );
