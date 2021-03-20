@@ -17,7 +17,9 @@ function Sidebar({currentPage}){
     return (
         <div className="sidebar">
             {/* twitter icon*/}
-            <TwitterIcon className="sidebar_twitterIcon" />
+            <div className="sidebar_iconContainer">
+                <img src="logo.png" className="sidebar_twitterIcon" />
+            </div>
             {/* twitter option*/}
             <SidebarOption active={currentPage === 0} Icon ={HomeIcon} text = "Home" path={"/"}/>
             <SidebarOption active={currentPage === 3} Icon ={SearchIcon} text = "Search" path={"search"}/>

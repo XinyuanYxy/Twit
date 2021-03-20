@@ -1,8 +1,8 @@
 import React from 'react'
 import "./FeedPost.css";
 import { Avatar} from '@material-ui/core';
-import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline'
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
+import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
+import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
 import {Link} from "react-router-dom";
 
 function FeedPost({post, displayPost, displayProfile}) {
@@ -21,7 +21,7 @@ function FeedPost({post, displayPost, displayProfile}) {
                 <div className="feedpost_header">
                 <div className="feedpost_headerText">
                 <Link to={'profile'} className='link'>
-                    <h3 onClick={()=>displayProfile(post)}> 
+                    <h3 className="feedpost_user" onClick={()=>displayProfile(post)}> 
                         {post.displayname}{" "} <span className="feedpost_headerUsername">
                             {post.username}
                             </span>
@@ -37,7 +37,7 @@ function FeedPost({post, displayPost, displayProfile}) {
                 <img src="" alt=""/>
                 <div className="feedpost_footer">
                     <ChatBubbleOutlineIcon onClick={()=>onClickReply(post.id)} fontsize="small" className="feedpost_button"/>
-                    <FavoriteBorderIcon fontsize="small" className="post_button"/>
+                    <ThumbUpOutlinedIcon fontsize="small" className="feedpost_button_right"/>
                 </div>
             </div>
 
