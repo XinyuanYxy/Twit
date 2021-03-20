@@ -4,6 +4,7 @@ import Sidebar from '../Sidebar';
 import Feed from '../Homepage/Feed';
 import FullPost from "../Homepage/FullPost";
 import Profile from "../Profile";
+import Search from "../Search/search";
 
 function AuthRouter() {
     const [currentPost, setCurrentPost] = useState({
@@ -56,6 +57,7 @@ function AuthRouter() {
                 </Route>
                 <Route exact path="/search">
                     <Sidebar currentPage={3}/>
+                    <Search />
                 </Route>
             </Switch>
         </BrowserRouter>
