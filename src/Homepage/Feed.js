@@ -4,6 +4,7 @@ import "./Feed.css";
 import TweetBox from '../TweetBox';
 import FeedPost from "./FeedPost";
 import Header from '../Header';
+import axios from '../api/axios';
 
 function Feed({displayPost, displayProfile}){
     const [posts, setPosts] = useState([
@@ -30,13 +31,58 @@ function Feed({displayPost, displayProfile}){
         }
     ]);
 
-    
-    const makePost = (post) =>{
-        //Replace with proper code for making a new post
-        const id = Math.floor(Math.random() * 10000) + 1
+    // test add a follower since that isn't wired up in the frontend
+    const testFollow = async () => {
+        try {
+            await axios.post("/follow", 
+                {
+                    following_id: 1, 
+                },
+                {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            });
+        } catch (e) {} // do nothing 
+    }
+    testFollow();
 
-        const newPost = {id,...post}
-        setPosts([newPost,...posts])
+    const getPosts = async () => {
+        return await axios.get("/post", {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        });
+    }
+
+    const feedPosts = getPosts();
+
+    
+    const makePost = async (post) =>{
+        //Replace with proper code for making a new post
+        // const id = Math.floor(Math.random() * 10000) + 1
+
+        // const newPost = {id,...post}
+
+        // TODO photo upload
+        console.log()
+        const submitPost = {
+            content: post.text,
+            date: Date.now(),
+            picture_id: null,
+        }
+        try {
+            const postId = await axios.post("/post", submitPost, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            }).data.postId;
+            const newPost = {postId,...post}
+            setPosts([newPost,...posts])
+        } catch (e) {
+            // TODO error message?
+        }
+
     }
 
     return (
