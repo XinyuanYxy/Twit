@@ -31,20 +31,30 @@ function Feed({displayPost, displayProfile}){
         }
     ]);
 
-    // test add a follower since that isn't wired up in the frontend
-    const testFollow = async () => {
+    // test add/remove a follower since that isn't wired up in the frontend
+    const testDeleteFollow = async () => {
         try {
-            await axios.post("/follow", 
-                {
-                    following_id: 1, 
-                },
-                {
+            await axios.delete("/follow/1", {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem("token")}`
                 }
             });
         } catch (e) {} // do nothing 
-    }
+    };
+    const testFollow = async () => {
+        try {
+            await axios.post("/follow", 
+                {
+                    following_id: 1
+                }, 
+                {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem("token")}`
+                    }
+                }
+            );
+        } catch (e) {} // do nothing 
+    };
     testFollow();
 
     const getPosts = async () => {

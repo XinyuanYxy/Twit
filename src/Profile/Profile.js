@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import axios from '../api/axios';
 import './Profile.css'
 import Header from "../Header";
 import ProfileUser from "./ProfileUser"
@@ -28,6 +29,17 @@ function Profile({user, displayPost}) {
             avatar: user.avatar
         }
     ]);
+    
+    const id = 2;
+    const getPosts = async () => {
+        return await axios.get(`/post/user/${id}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        });
+    };
+
+    const profilePosts = getPosts();
 
     return (
         <div className="profile"> 
