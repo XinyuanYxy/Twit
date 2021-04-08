@@ -20,24 +20,29 @@ class SignUpForm extends React.Component {
     }
 
     signUp = async () => {
-        if (this.state.password === this.state.confirmPassword) {
-            try {
-                await axios.post("/users", {
-                    username: this.state.username,
-                    password: SHA256(this.state.password).toString(),
-                    firstName: this.state.firstName,
-                    lastName: this.state.lastName
-                });
-                this.setState({ success: true });
-            } catch (e) {
-                if (e.response && e.response.status === 401){ 
-                    this.setState({ error: "An account with that username already exists!"});
-                } else {
-                    this.setState({ error: "Sorry, something went wrong. Please try again later. "});
+        if (this.state.password && this.state.username) {
+            if (this.state.password === this.state.confirmPassword) {
+                try {
+                    await axios.post("/users", {
+                        email: this.state.email,
+                        username: this.state.username,
+                        password: SHA256(this.state.password).toString(),
+                        firstName: this.state.firstName,
+                        lastName: this.state.lastName
+                    });
+                    this.setState({ success: true });
+                } catch (e) {
+                    if (e.response && e.response.status === 401){ 
+                        this.setState({ error: "An account with that email already exists!"});
+                    } else {
+                        this.setState({ error: "Sorry, something went wrong. Please try again later. "});
+                    }
                 }
+            } else {
+                this.setState({ error: "The passwords entered below do not match" })
             }
         } else {
-            this.setState({ error: "The passwords entered below do not match" })
+            this.setState({ error: "Please fill in your username and password" })
         }
     };
 
@@ -53,6 +58,10 @@ class SignUpForm extends React.Component {
 
     setUsername = (e) => {
         this.setState({ username: e.target.value });
+    };
+
+    setEmail = (e) => {
+        this.setState({ email: e.target.value });
     };
 
     setPassword = (e) => {
@@ -90,6 +99,17 @@ class SignUpForm extends React.Component {
                             {this.state.error}
                         </div>
                     }
+                    {/* Username */}
+                    <div className="input">
+                        <i className="icon fas fa-user"></i>
+                        <input 
+                            className="login-input"
+                            placeholder="user name"
+                            type="text"
+                            value={this.state.username}
+                            onChange={this.setUsername}
+                        ></input>
+                    </div>
                     {/* First Name */}
                     <div className="input">
                         <i className="icon fas fa-user"></i>
@@ -112,15 +132,15 @@ class SignUpForm extends React.Component {
                             onChange={this.setLastName}
                         ></input>
                     </div>
-                    {/* Username */}
+                    {/* Email */}
                     <div className="input">
                         <i className="icon fas fa-user"></i>
                         <input 
                             className="login-input"
-                            placeholder="user name"
+                            placeholder="email"
                             type="text"
-                            value={this.state.username}
-                            onChange={this.setUsername}
+                            value={this.state.email}
+                            onChange={this.setEmail}
                         ></input>
                     </div>
                     {/* Password */}

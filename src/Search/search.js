@@ -10,19 +10,19 @@ function Search({displayProfile}) {
         id: 0,
         displayname: "Chris",
         username: "@ChrisTucker",
-        Avatar: 'christucker.jpg'
+        avatar: 'christucker.jpg'
       },
       {
         id: 1,
         displayname: "Christopher",
         username: "@ChristopherRobin",
-        Avatar: 'christopherrobin.jpg'
+        avatar: 'christopherrobin.jpg'
       },
       {
         id: 2,
         displayname: "Christy",
         username: "@Christy",
-        Avatar: 'christy.jpg'
+        avatar: 'christy.jpg'
       },
     ]
 
