@@ -23,15 +23,15 @@ function FeedPost({post, displayPost, displayProfile}) {
                 <div className="feedpost_headerText">
                 <Link to={'profile'} className='link'>
                     <h3 className="feedpost_user" onClick={()=>displayProfile(post)}> 
-                        {post.displayname}{" "} <span className="feedpost_headerUsername">
-                            {post.username}
+                        {"@"}{post.username}{" "} <span className="feedpost_headerUsername">
+                            {post.fname}
                             </span>
                     </h3>
                 </Link>
                 </div>
                 <Link to={'post'} className='link'>
                     <div className="feedpost_headerDescription" onClick={()=>displayPost(post)}>
-                        <p>{post.text}</p>
+                        <p>{post.content}</p>
                     </div>
                 </Link>
                 </div>
