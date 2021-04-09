@@ -32,7 +32,7 @@ export default class Feed extends React.Component{
         <div className="feed"> 
            <Header headerText="Home"/>
             {/* TweetBox */}
-
+            <TweetBox/>
 
             {/* post */}
             {//Posts have post_id, user_id, date, content, picture_id, fname, profile_picture_id and username

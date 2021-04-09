@@ -16,15 +16,15 @@ function Reply({reply, replyname, displayProfile}) {
                 <div className="reply_header">
                     <Link to={'profile'} className="reply_headerText" onClick={()=>displayProfile(reply)}>
                         <h3> 
-                            {reply.displayname}{" "} <span className="reply_headerUsername">
-                                {reply.username}
+                            {reply.fname}{" "} <span className="reply_headerUsername">
+                                {"@"}{reply.username}
                                 </span>
                         </h3>
                     </Link>
                     <span className="reply_replyUsername"> replying to {replyname} </span>
                     
                     <div className="reply_headerDescription">
-                        <p>{reply.text}</p>
+                        <p>{reply.content}</p>
                     </div>
                 </div>
                 <img src={reply.image} alt=""/>

@@ -23,14 +23,14 @@ function Post({post, displayProfile}) {
                 <div className="post_headerText">
                 <Link to={'profile'} className='link'>
                     <h3 onClick={()=>displayProfile(post)}> 
-                        {post.displayname}{" "} <span className="post_headerUsername">
-                            {post.username}
+                        {post.fname}{" "} <span className="post_headerUsername">
+                        {"@"}{post.username}
                             </span>
                     </h3>
                 </Link>
                 </div>
                     <div className="post_headerDescription">
-                        <p className="post_mainText">{post.text}</p>
+                        <p className="post_mainText">{post.content}</p>
                     </div>
                 </div>
                 <img src="" alt=""/>
