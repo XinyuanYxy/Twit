@@ -13,7 +13,7 @@ function ProfileUser({user}) {
                 <div className="profileUser_header">
                     <div className="profileUser_headerText">
                         <h3> 
-                            {user.displayname}{" "}
+                            {user.fname}{" "}
                         </h3>
                     </div>
                     <h4 className="profileUser_description">

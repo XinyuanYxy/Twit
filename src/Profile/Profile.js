@@ -4,53 +4,51 @@ import './Profile.css'
 import Header from "../Header";
 import ProfileUser from "./ProfileUser"
 import ProfilePost from "./ProfilePost"
+import React from 'react';
 
-function Profile({user, displayPost}) {
-    const [posts, setPosts] = useState([
-        {
-            id: 0,
-            displayname: user.displayname,
-            username: user.username,
-            text: 'this is my third post!',
-            avatar: user.avatar
-        },
-        {
-            id: 1,
-            displayname: user.displayname,
-            username: user.username,
-            text: 'Wow, two whole posts?',
-            avatar: user.avatar
-        },
-        {
-            id: 2,
-            displayname: user.displayname,
-            username: user.username,
-            text: 'Yep. First post ever, kind\'ve a big deal.',
-            avatar: user.avatar
-        }
-    ]);
+export default class Profile extends React.Component{
+    constructor(props){
+        super(props);
+    }
     
-    const id = 2;
-    const getPosts = async () => {
-        return await axios.get(`/post/user/${id}`, {
+    state = {
+        posts: [],
+        user: []
+    }
+
+    componentDidMount(){
+        axios.get(`/users/user/${this.props.user.user_id}`, {
+            headers: {
+                user: `Bearer ${localStorage.getItem("token")}`
+            }
+        }).then(res =>{
+            const user = res.data;
+            this.setState({user});
+        });
+
+        axios.get(`/post/user/${this.props.user.user_id}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem("token")}`
             }
+        }).then(res =>{
+            const posts = res.data;
+            this.setState({posts});
         });
+
     };
 
-    const profilePosts = getPosts();
-
-    return (
-        <div className="profile"> 
-            {/* Header */}
-            <Header headerText={user.username}/>
-            <ProfileUser user={user}/>
-            {posts.map((post) =>(
-                <ProfilePost key={post.id} post={post} displayPost={displayPost}/>
-            ))}
-        </div>
-    );
+    render(){
+        return (
+            <div className="profile"> 
+                {/* Header */}
+                {this.state.user.map((user) =>(
+                    <Header headerText={user.username}/>,
+                    <ProfileUser user={user}/>
+                ))}
+                {this.state.posts.map((post) =>(
+                    <ProfilePost key={post.post_id} post={post} displayPost={this.props.displayPost}/>
+                ))}
+            </div>
+        );
+    }
 }
-
-export default Profile

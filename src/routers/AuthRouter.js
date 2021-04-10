@@ -15,25 +15,16 @@ function AuthRouter() {
     });
 
     const [user, setUser] = useState({
-        id: 0,
-        displayname: 'Chris',
-        username: '@yxychr',
-        avatar: null,
-        description: 'Just a person doin\' their thing'
+        user_id: 0
     })
 
     const displayPost = (post) =>{
         setCurrentPost(post);
     }
 
-    const displayProfile = (post) =>{
-        console.log(post)
+    const displayProfile = (user) =>{
         setUser({
-            id: 0,
-            displayname: post.displayname,
-            username: post.username,
-            avatar: post.avatar,
-            description: 'Just a person doin\' their thing'
+            user_id: user.user_id,
         });
     }
 
@@ -42,7 +33,7 @@ function AuthRouter() {
             <Switch>
                 <Route exact path="/">
                     {/* sidebar */}
-                    <Sidebar currentPage={0}/>
+                    <Sidebar currentPage={0} displayProfile={displayProfile}/>
                     {/* feed */}
                     <Feed displayPost={displayPost} displayProfile={displayProfile}/>
                 </Route>
@@ -53,6 +44,10 @@ function AuthRouter() {
                 <Route exact path="/profile">
                     <Sidebar currentPage={2}/>
                     <Profile user={user} displayPost={displayPost}/>
+                </Route>
+                <Route exact path="/profile/me">
+                <Sidebar currentPage={2}/>
+                    <Profile user={{user_id: "me"}} displayPost={displayPost}/>
                 </Route>
                 <Route exact path="/search">
                     <Sidebar currentPage={3}/>
