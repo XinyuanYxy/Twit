@@ -28,3 +28,7 @@
 .profileUser_avatar{
     padding: 10px;
 }
+
+.profileUser_avatar_editable {
+    cursor: pointer;
+}
