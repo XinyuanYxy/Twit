@@ -1,11 +1,11 @@
 import { Avatar, Button } from '@material-ui/core';
 import React from 'react';
-import './TweetBox.css';
+import './ReplyBox.css';
 import { useState, useRef } from 'react'
 import axios from './api/axios';
 import PhotoCameraOutlinedIcon from '@material-ui/icons/PhotoCameraOutlined';
 
-function TweetBox() {
+function ReplyBox({post}) {
 
     const [text, setText] = useState('')
 
@@ -15,11 +15,11 @@ function TweetBox() {
         e.preventDefault();
 
         if(!text){
-            alert('Tweet can\'t be empty');
+            alert('Reply can\'t be empty');
             return;
         }
 
-        makePost({displayname:'Chris',username:'@yxychr',text,avatar:null })
+        makeReply({text})
         setText('')
     }
 
@@ -27,20 +27,20 @@ function TweetBox() {
         inputFile.current.click();
     };
 
-    const makePost = async (post) =>{
+    const makeReply = async (info) =>{
     
-        // TODO photo upload
-        const submitPost = {
-            content: post.text,
+        const submitReply = {
+            content: info.text,
+            post_id: post.post_id,
             date: Date.now(),
             picture_id: null,
         }
         try {
-            const postId = await axios.post("/post", submitPost, {
+            await axios.post("/reply", submitReply, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem("token")}`
                 }
-            }).data.postId;
+            });
         } catch (e) {
             // TODO error message?
         }
@@ -48,22 +48,23 @@ function TweetBox() {
     }
 
     return (
-        <div className="tweetBox">
+        <div className="replyBox">
             <form onSubmit={onSubmit}>
-                <div className="tweetBox_input">
-                    <textarea value={text} placeholder= "What's happening?" onChange={(e) => setText(e.target.value)}/>
+                <div className="replyBox_input">
+                    <Avatar src=""/>
+                    <textarea value={text} placeholder= "Reply..." onChange={(e) => setText(e.target.value)}/>
                 </div>
-                <div className="tweetBox_buttons_container">
+                <div className="replyBox_buttons_container">
                     {/* Hacky fix to have button trigger image upload */}
                     <input id="image_upload" class="image_upload" type="file" ref={inputFile} />
-                    <button className="tweetBox_imageButton" type="button" onClick={upload}>
+                    <button className="replyBox_imageButton" type="button" onClick={upload}>
                         <PhotoCameraOutlinedIcon />
                     </button>
-                    <input onClick={onSubmit} type="submit" value='Post' className="tweetBox_tweetButton"/>
+                    <input onClick={onSubmit} type="submit" value='Reply' className="replyBox_replyButton"/>
                 </div>
             </form>
         </div>
     );
 }
 
-export default TweetBox
+export default ReplyBox

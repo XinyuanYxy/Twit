@@ -6,16 +6,12 @@ import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
 import {Link} from "react-router-dom";
 
 function ProfilePost({post, displayPost, displayProfile}) {
-    
-    const onClickReply = (id) =>{
-        console.log('clicked reply on ' + id)
-    }
-    
+
     return (
         <div className="profilepost">
             <div className="profilepost_avatar">
             <Link to={'profile'} className='link'>
-                <Avatar src={"images/"+post.avatar} onClick={()=>displayProfile(post)}/>
+                <Avatar src={"images/"+post.image_path} onClick={()=>displayProfile(post)}/>
             </Link>
             </div>
             <div className="profilepost_body">
@@ -36,10 +32,6 @@ function ProfilePost({post, displayPost, displayProfile}) {
                 </Link>
                 </div>
                 <img src="" alt=""/>
-                <div className="profilepost_footer">
-                    <ChatBubbleOutlineIcon onClick={()=>onClickReply(post.id)} fontsize="small" className="profilepost_button"/>
-                    <ThumbUpOutlinedIcon fontsize="small" className="profilepost_button_right"/>
-                </div>
             </div>
 
 

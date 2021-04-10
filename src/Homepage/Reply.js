@@ -9,7 +9,7 @@ function Reply({reply, replyname, displayProfile}) {
         <div className="reply">
             <div className="reply_avatar">
                 <Link to={'profile'} className='link'>
-                <Avatar src={"images/"+reply.avatar} onClick={()=>displayProfile(reply)}/>
+                <Avatar src={"images/"+reply.image_path} onClick={()=>displayProfile(reply)}/>
                 </Link>
             </div>
             <div className="reply_body">

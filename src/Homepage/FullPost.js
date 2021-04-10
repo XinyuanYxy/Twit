@@ -5,7 +5,7 @@ import Post from "./Post";
 import Reply from "./Reply";
 import Header from '../Header';
 import axios from '../api/axios';
-
+import ReplyBox from '../ReplyBox';
 export default class FullPost extends React.Component{
 
     constructor(props){
@@ -34,7 +34,7 @@ export default class FullPost extends React.Component{
                 {/* post */}
                 <div className="fullpost-container">
                     <Post post={this.props.post} displayProfile={this.props.displayProfile}/>
-                    
+                    <ReplyBox post={this.props.post}/>
                     {/* replies */}
                     {this.state.replies.map((reply) =>(
                         <Reply key={reply.id} reply={reply} replyname={this.props.post.username} displayProfile={this.props.displayProfile}/>

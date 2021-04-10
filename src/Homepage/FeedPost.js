@@ -7,10 +7,6 @@ import {Link} from "react-router-dom";
 
 function FeedPost({post, displayPost, displayProfile}) {
     
-    const onClickReply = (id) =>{
-        console.log('clicked reply on ' + id)
-    }
-    
     return (
         <div className="feedpost">
             <div className="feedpost_avatar">
@@ -36,10 +32,6 @@ function FeedPost({post, displayPost, displayProfile}) {
                 </Link>
                 </div>
                 <img src="" alt=""/>
-                <div className="feedpost_footer">
-                    <ChatBubbleOutlineIcon onClick={()=>onClickReply(post.id)} fontsize="small" className="feedpost_button"/>
-                    <ThumbUpOutlinedIcon fontsize="small" className="feedpost_button_right"/>
-                </div>
             </div>
 
 
