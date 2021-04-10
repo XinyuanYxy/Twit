@@ -46,7 +46,7 @@ export default class Profile extends React.Component{
                     <ProfileUser user={user}/>
                 ))}
                 {this.state.posts.map((post) =>(
-                    <ProfilePost key={post.post_id} post={post} displayPost={this.props.displayPost}/>
+                    <ProfilePost key={post.post_id} post={post} displayProfile={this.props.displayProfile} displayPost={this.props.displayPost}/>
                 ))}
             </div>
         );

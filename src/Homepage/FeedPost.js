@@ -15,7 +15,7 @@ function FeedPost({post, displayPost, displayProfile}) {
         <div className="feedpost">
             <div className="feedpost_avatar">
             <Link to={'profile'} className='link'>
-                <Avatar src={"images/"+post.avatar} onClick={()=>displayProfile(post)}/>
+                <Avatar src={"images/"+post.image_path} onClick={()=>displayProfile(post)}/>
             </Link>
             </div>
             <div className="feedpost_body">

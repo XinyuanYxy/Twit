@@ -6,6 +6,7 @@ import FeedPost from "./FeedPost";
 import Header from '../Header';
 import axios from '../api/axios';
 import { render } from '@testing-library/react';
+
 export default class Feed extends React.Component{
 
     constructor(props){

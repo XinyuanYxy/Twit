@@ -7,11 +7,11 @@ import Profile from "../Profile/Profile";
 import Search from "../Search/search";
 function AuthRouter() {
     const [currentPost, setCurrentPost] = useState({
-        id: 0,
-        displayname: 'Undefined',
+        post_id: 0,
+        fname: 'Undefined',
         username: 'Undefined',
         avatar: null,
-        text: 'Undefined'
+        content: 'Undefined'
     });
 
     const [user, setUser] = useState({
@@ -43,11 +43,11 @@ function AuthRouter() {
                 </Route>
                 <Route exact path="/profile">
                     <Sidebar currentPage={2}/>
-                    <Profile user={user} displayPost={displayPost}/>
+                    <Profile user={user} displayPost={displayPost} displayProfile={displayProfile}/>
                 </Route>
                 <Route exact path="/profile/me">
                 <Sidebar currentPage={2}/>
-                    <Profile user={{user_id: "me"}} displayPost={displayPost}/>
+                    <Profile user={{user_id: "me"}} displayPost={displayPost} displayProfile={displayProfile}/>
                 </Route>
                 <Route exact path="/search">
                     <Sidebar currentPage={3}/>

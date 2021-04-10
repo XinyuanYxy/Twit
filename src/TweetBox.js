@@ -2,9 +2,10 @@ import { Avatar, Button } from '@material-ui/core';
 import React from 'react';
 import './TweetBox.css';
 import { useState, useRef } from 'react'
+import axios from './api/axios';
 import PhotoCameraOutlinedIcon from '@material-ui/icons/PhotoCameraOutlined';
 
-function TweetBox({makePost}) {
+function TweetBox() {
 
     const [text, setText] = useState('')
 
@@ -25,6 +26,26 @@ function TweetBox({makePost}) {
     const upload = () => {
         inputFile.current.click();
     };
+
+    const makePost = async (post) =>{
+    
+        // TODO photo upload
+        const submitPost = {
+            content: post.text,
+            date: Date.now(),
+            picture_id: null,
+        }
+        try {
+            const postId = await axios.post("/post", submitPost, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            }).data.postId;
+        } catch (e) {
+            // TODO error message?
+        }
+    
+    }
 
     return (
         <div className="tweetBox">
