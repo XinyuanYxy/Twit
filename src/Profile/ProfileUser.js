@@ -7,13 +7,13 @@ function ProfileUser({user}) {
     return (
         <div className="profileUser">
             <div className="profileUser_avatar">
-                <Avatar style={{ height: '70px', width: '70px' }} src={"images/"+user.avatar}/>
+                <Avatar style={{ height: '70px', width: '70px' }} src={"images/"+user.image_path}/>
             </div>
             <div className="profileUser_body">
                 <div className="profileUser_header">
                     <div className="profileUser_headerText">
                         <h3> 
-                            {user.displayname}{" "}
+                            {user.fname}{" "}
                         </h3>
                     </div>
                     <h4 className="profileUser_description">

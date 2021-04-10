@@ -5,37 +5,33 @@ import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
 import {Link} from "react-router-dom";
 
-function ProfilePost({post, displayPost}) {
-    
-    const onClickReply = (id) =>{
-        console.log('clicked reply on ' + id)
-    }
-    
+function ProfilePost({post, displayPost, displayProfile}) {
+
     return (
         <div className="profilepost">
             <div className="profilepost_avatar">
-                <Avatar src={"images/"+post.avatar}/>
+            <Link to={'profile'} className='link'>
+                <Avatar src={"images/"+post.image_path} onClick={()=>displayProfile(post)}/>
+            </Link>
             </div>
             <div className="profilepost_body">
                 <div className="profilepost_header">
                 <div className="profilepost_headerText">
-                    <h3 className="profilepost_user"> 
-                        {post.displayname}{" "} <span className="profilepost_headerUsername">
-                            {post.username}
+                <Link to={'profile'} className='link'>
+                    <h3 className="profilepost_user" onClick={()=>displayProfile(post)}> 
+                        {post.fname}{" "} <span className="profilepost_headerUsername">
+                            {"@"}{post.username}
                             </span>
                     </h3>
+                </Link>
                 </div>
-                <Link to={'post'} className='link'>
+                <Link to={'../post'} className='link'>
                     <div className="profilepost_headerDescription" onClick={()=>displayPost(post)}>
-                        <p>{post.text}</p>
+                        <p>{post.content}</p>
                     </div>
                 </Link>
                 </div>
                 <img src="" alt=""/>
-                <div className="profilepost_footer">
-                    <ChatBubbleOutlineIcon onClick={()=>onClickReply(post.id)} fontsize="small" className="profilepost_button"/>
-                    <ThumbUpOutlinedIcon fontsize="small" className="profilepost_button_right"/>
-                </div>
             </div>
 
 

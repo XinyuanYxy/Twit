@@ -7,15 +7,11 @@ import {Link} from "react-router-dom";
 
 function FeedPost({post, displayPost, displayProfile}) {
     
-    const onClickReply = (id) =>{
-        console.log('clicked reply on ' + id)
-    }
-    
     return (
         <div className="feedpost">
             <div className="feedpost_avatar">
             <Link to={'profile'} className='link'>
-                <Avatar src={"images/"+post.avatar} onClick={()=>displayProfile(post)}/>
+                <Avatar src={"images/"+post.image_path} onClick={()=>displayProfile(post)}/>
             </Link>
             </div>
             <div className="feedpost_body">
@@ -23,23 +19,19 @@ function FeedPost({post, displayPost, displayProfile}) {
                 <div className="feedpost_headerText">
                 <Link to={'profile'} className='link'>
                     <h3 className="feedpost_user" onClick={()=>displayProfile(post)}> 
-                        {post.displayname}{" "} <span className="feedpost_headerUsername">
-                            {post.username}
+                        {post.fname}{" "} <span className="feedpost_headerUsername">
+                        {"@"}{post.username}
                             </span>
                     </h3>
                 </Link>
                 </div>
                 <Link to={'post'} className='link'>
                     <div className="feedpost_headerDescription" onClick={()=>displayPost(post)}>
-                        <p>{post.text}</p>
+                        <p>{post.content}</p>
                     </div>
                 </Link>
                 </div>
                 <img src="" alt=""/>
-                <div className="feedpost_footer">
-                    <ChatBubbleOutlineIcon onClick={()=>onClickReply(post.id)} fontsize="small" className="feedpost_button"/>
-                    <ThumbUpOutlinedIcon fontsize="small" className="feedpost_button_right"/>
-                </div>
             </div>
 
 
