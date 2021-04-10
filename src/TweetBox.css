@@ -27,6 +27,12 @@
     margin-left: 80px;
 }
 
+.tweetBox_image_name {
+    padding-left: 40px;
+    padding-top: 10px;
+    display: flex;
+}
+
 .tweetBox_input {
     padding: 20px;
     display: flex;
