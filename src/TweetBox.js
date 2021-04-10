@@ -36,18 +36,22 @@ function TweetBox() {
     }
 
     const makePost = async (post) => {
-        const imageData = new FormData()
-        imageData.append("file", image);
-        // Upload image to get picture ID, then submit post
-        const response = await axios.post("/images", imageData, {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem("token")}`
-            }
-        });
+        let picture_id = null;
+        if (image) {
+            const imageData = new FormData()
+            imageData.append("file", image);
+            // Upload image to get picture ID, then submit post
+            const response = await axios.post("/images", imageData, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            });
+            picture_id = response.data.picture_id
+        }
         const submitPost = {
             content: post.text,
             date: Date.now(),
-            picture_id: response.data.picture_id,
+            picture_id: picture_id
         }
         try {
             const postId = await axios.post("/post", submitPost, {
