@@ -13,7 +13,20 @@ export default class Profile extends React.Component{
     
     state = {
         posts: [],
-        user: []
+        user: [],
+        isMe: false
+    }
+
+    profilePicDidChange = async (image) => {
+        const imageData = new FormData()
+        imageData.append("file", image);
+        await axios.post("/images/profile", imageData, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        });
+        // Reload user data
+        this.componentDidMount();
     }
 
     componentDidMount(){
@@ -34,7 +47,9 @@ export default class Profile extends React.Component{
             const posts = res.data;
             this.setState({posts});
         });
-
+        if (this.props.user.user_id === "me") {
+            this.setState({isMe: true})
+        }
     };
 
     render(){
@@ -43,7 +58,7 @@ export default class Profile extends React.Component{
                 {/* Header */}
                 {this.state.user.map((user) =>(
                     <Header headerText={user.username}/>,
-                    <ProfileUser user={user}/>
+                    <ProfileUser user={user} isMe={this.state.isMe} profilePicDidChange={this.profilePicDidChange} />
                 ))}
                 {this.state.posts.map((post) =>(
                     <ProfilePost key={post.post_id} post={post} displayProfile={this.props.displayProfile} displayPost={this.props.displayPost}/>
