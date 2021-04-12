@@ -13,11 +13,31 @@ function Post({post, displayProfile}) {
         showing: false
     });
 
+    const getAvatarImageSrc = () => {
+        let imgSrc;
+        if (post.avatar_image_path !== null && post.avatar_image_path !== "null") {
+            imgSrc = "http://localhost:3001/images/"+post.avatar_image_path;
+        } else {
+            imgSrc = "";
+        }
+        return imgSrc;
+    }
+
+    const getPostImageSrc = () => {
+        let imgSrc;
+        if (post.post_image_path !== null && post.post_image_path !== "null") {
+            imgSrc = "http://localhost:3001/images/"+post.post_image_path;
+        } else {
+            imgSrc = "";
+        }
+        return imgSrc;
+    }
+
     return (
         <div className="post">
             <div className="post_avatar">
                 <Link to={'profile'} className='link'>
-                    <Avatar style={{ height: '70px', width: '70px' }} src={"images/"+post.image_path} onClick={()=>displayProfile(post)}/>
+                    <Avatar style={{ height: '70px', width: '70px' }} src={getAvatarImageSrc()} onClick={()=>displayProfile(post)}/>
                 </Link>
             </div>
             <div className="post_body">
@@ -35,7 +55,7 @@ function Post({post, displayProfile}) {
                         <p className="post_mainText">{post.content}</p>
                     </div>
                 </div>
-                <img src="" alt=""/>
+                <img src={getPostImageSrc()} alt=""/>
             </div>
         </div>
     )

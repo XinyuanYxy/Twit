@@ -9,6 +9,8 @@ function ReplyBox({post}) {
 
     const [text, setText] = useState('')
 
+    const [image, setImage] = useState(null);
+
     const inputFile = useRef(null);
 
     const onSubmit = (e) => {
@@ -21,19 +23,35 @@ function ReplyBox({post}) {
 
         makeReply({text})
         setText('')
+        setImage(null)
     }
 
     const upload = () => {
         inputFile.current.click();
     };
 
+    const saveImage = (e) => {
+        setImage(e.target.files[0])
+    }
+
     const makeReply = async (info) =>{
-    
+        let picture_id = null;
+        if (image) {
+            const imageData = new FormData()
+            imageData.append("file", image);
+            // Upload image to get picture ID, then submit reply
+            const response = await axios.post("/images", imageData, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            });
+            picture_id = response.data.picture_id
+        }
         const submitReply = {
             content: info.text,
             post_id: post.post_id,
             date: Date.now(),
-            picture_id: null,
+            picture_id: picture_id,
         }
         try {
             await axios.post("/reply", submitReply, {
@@ -56,7 +74,7 @@ function ReplyBox({post}) {
                 </div>
                 <div className="replyBox_buttons_container">
                     {/* Hacky fix to have button trigger image upload */}
-                    <input id="image_upload" class="image_upload" type="file" ref={inputFile} />
+                    <input id="image_upload" class="image_upload" type="file" ref={inputFile} onChange={saveImage} />
                     <button className="replyBox_imageButton" type="button" onClick={upload}>
                         <PhotoCameraOutlinedIcon />
                     </button>
