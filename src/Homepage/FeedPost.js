@@ -7,11 +7,31 @@ import {Link} from "react-router-dom";
 
 function FeedPost({post, displayPost, displayProfile}) {
     
+    const getAvatarImageSrc = () => {
+        let imgSrc;
+        if (post.avatar_image_path !== null && post.avatar_image_path !== "null") {
+            imgSrc = "http://localhost:3001/images/"+post.avatar_image_path;
+        } else {
+            imgSrc = "";
+        }
+        return imgSrc;
+    }
+
+    const getPostImageSrc = () => {
+        let imgSrc;
+        if (post.post_image_path !== null && post.post_image_path !== "null") {
+            imgSrc = "http://localhost:3001/images/"+post.post_image_path;
+        } else {
+            imgSrc = "";
+        }
+        return imgSrc;
+    }
+
     return (
         <div className="feedpost">
             <div className="feedpost_avatar">
             <Link to={'profile'} className='link'>
-                <Avatar src={"images/"+post.image_path} onClick={()=>displayProfile(post)}/>
+                <Avatar src={getAvatarImageSrc()} onClick={()=>displayProfile(post)}/>
             </Link>
             </div>
             <div className="feedpost_body">
@@ -31,7 +51,7 @@ function FeedPost({post, displayPost, displayProfile}) {
                     </div>
                 </Link>
                 </div>
-                <img src="" alt=""/>
+                <img src={getPostImageSrc()} alt=""/>
             </div>
 
 

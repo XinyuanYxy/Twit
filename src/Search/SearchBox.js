@@ -3,7 +3,7 @@ import React from 'react';
 import './SearchBox.css';
 import { useState } from 'react'
 
-function SearchBox() {
+function SearchBox({updateTerm}) {
 
     const [text, setText] = useState('')
 
@@ -15,6 +15,7 @@ function SearchBox() {
             return;
         }
         //Perform search
+        updateTerm(e,text);
         setText('')
     }
 

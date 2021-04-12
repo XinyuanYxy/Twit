@@ -14,7 +14,8 @@ export default class Profile extends React.Component{
     state = {
         posts: [],
         user: [],
-        isMe: false
+        isMe: false,
+        isFollowing: false
     }
 
     profilePicDidChange = async (image) => {
@@ -27,6 +28,29 @@ export default class Profile extends React.Component{
         });
         // Reload user data
         this.componentDidMount();
+    }
+
+    setFollowing = (follow) =>{
+        if(follow){
+            const filler = {
+                content: ""
+            }
+            axios.post(`/follow/${this.props.user.user_id}`, filler, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            }).then(res => {
+                this.componentDidMount();
+            })
+        }else{
+            axios.delete(`/follow/unfollow/${this.props.user.user_id}`, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            }).then(res => {
+                this.componentDidMount();
+            })
+        }
     }
 
     componentDidMount(){
@@ -47,8 +71,18 @@ export default class Profile extends React.Component{
             const posts = res.data;
             this.setState({posts});
         });
+
         if (this.props.user.user_id === "me") {
             this.setState({isMe: true})
+        }else{
+            axios.get(`/follow/user/${this.props.user.user_id}`, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            }).then(res =>{
+                console.log("FOLLOWING: " + res.data);
+                this.setState({isFollowing: (res.data != null && res.data.length > 0)});
+            });
         }
     };
 
@@ -58,7 +92,7 @@ export default class Profile extends React.Component{
                 {/* Header */}
                 {this.state.user.map((user) =>(
                     <Header headerText={user.username}/>,
-                    <ProfileUser user={user} isMe={this.state.isMe} profilePicDidChange={this.profilePicDidChange} />
+                    <ProfileUser user={user} isMe={this.state.isMe} setFollowing={this.setFollowing} isFollowing={this.state.isFollowing} profilePicDidChange={this.profilePicDidChange} />
                 ))}
                 {this.state.posts.map((post) =>(
                     <ProfilePost key={post.post_id} post={post} displayProfile={this.props.displayProfile} displayPost={this.props.displayPost}/>

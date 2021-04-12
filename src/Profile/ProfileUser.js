@@ -2,7 +2,7 @@ import React, {useRef} from 'react'
 import "./ProfileUser.css";
 import {Avatar} from '@material-ui/core';
 
-function ProfileUser({user, isMe, profilePicDidChange}) {
+function ProfileUser({user, isMe, profilePicDidChange, isFollowing, setFollowing}) {
     const inputFile = useRef(null);
     
     const upload = () => {
@@ -43,6 +43,9 @@ function ProfileUser({user, isMe, profilePicDidChange}) {
                     </h4>
                 </div>
             </div>
+            {!isMe &&
+            <button onClick={() => setFollowing(!isFollowing)}>  {isFollowing && 'Following'} {!isFollowing && 'Follow'} </button>
+            }
         </div>
     )
 }
