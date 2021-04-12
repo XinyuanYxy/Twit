@@ -32,3 +32,16 @@
 .profileUser_avatar_editable {
     cursor: pointer;
 }
+
+.follow-button {
+    width: 125px;
+    height: 40px;
+    color: white;
+    background-color: rgb(255, 230, 129);
+    font-weight: bold;
+    border: 1px solid rgb(255, 230, 129);
+    border-radius: 10px;
+    margin-top: 25px;
+    margin-right: 10px;
+    cursor: pointer;
+}

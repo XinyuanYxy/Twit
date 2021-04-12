@@ -55,7 +55,7 @@ function Post({post, displayProfile}) {
                         <p className="post_mainText">{post.content}</p>
                     </div>
                 </div>
-                <img src={getPostImageSrc()} alt=""/>
+                <img className="post_image" src={getPostImageSrc()} alt=""/>
             </div>
         </div>
     )
