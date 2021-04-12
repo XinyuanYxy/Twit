@@ -46,7 +46,7 @@ function Reply({reply, replyname, displayProfile}) {
                         <p>{reply.content}</p>
                     </div>
                 </div>
-                <img src={getReplyImageSrc()} alt=""/>
+                <img className="reply_image" src={getReplyImageSrc()} alt=""/>
             </div>
         </div>
     )

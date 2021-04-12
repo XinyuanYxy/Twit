@@ -54,3 +54,7 @@
 .reply_avatar {
     padding: 10px;
 }
+
+.reply_image {
+    max-width: 500px;
+}

@@ -51,7 +51,7 @@ function FeedPost({post, displayPost, displayProfile}) {
                     </div>
                 </Link>
                 </div>
-                <img src={getPostImageSrc()} alt=""/>
+                <img className="feedpost_image" src={getPostImageSrc()} alt=""/>
             </div>
 
 

@@ -44,7 +44,12 @@ function ProfileUser({user, isMe, profilePicDidChange, isFollowing, setFollowing
                 </div>
             </div>
             {!isMe &&
-            <button onClick={() => setFollowing(!isFollowing)}>  {isFollowing && 'Following'} {!isFollowing && 'Follow'} </button>
+            <button 
+                className="follow-button" 
+                onClick={() => setFollowing(!isFollowing)}
+            >  
+                {isFollowing && 'Following'} {!isFollowing && 'Follow'} 
+            </button>
             }
         </div>
     )

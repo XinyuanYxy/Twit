@@ -51,7 +51,7 @@ function ProfilePost({post, displayPost, displayProfile}) {
                     </div>
                 </Link>
                 </div>
-                <img src={getPostImageSrc()} alt=""/>
+                <img className="profilepost_image" src={getPostImageSrc()} alt=""/>
             </div>
 
 

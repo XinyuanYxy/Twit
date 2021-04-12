@@ -63,3 +63,7 @@
 .feedpost_user {
     margin-top: 0 !important;
 }
+
+.feedpost_image {
+    max-width: 500px;
+}

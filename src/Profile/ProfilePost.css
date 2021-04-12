@@ -63,3 +63,7 @@
 .profilepost_user {
     margin-top: 0 !important;
 }
+
+.profilepost_image {
+    max-width: 500px;
+}
